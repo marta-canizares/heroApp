@@ -1,0 +1,132 @@
+{
+    "marvel": [
+      {
+        "id": 1,
+        "hero": "Spider-Man",
+        "name": "Peter Benjamin Parker",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "category": "Heroes",
+        "link": "http://marvel.com/characters/54/spider-man"
+      },
+      {
+        "id": 2,
+        "hero": "CAPTAIN MARVEL",
+        "name": "Carol Danvers",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "category": "Heroes",
+        "link": "http://marvel.com/characters/9/captain_marvel"
+      },
+      {
+        "id": 3,
+        "hero": "HULK",
+        "name": "Robert Bruce Banner",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "category": "Heroes",
+        "link": "http://marvel.com/characters/25/hulk"
+      },
+      {
+        "id": 4,
+        "hero": "Black Widow",
+        "name": "Natalia 'Natasha' Alianovna Romanova",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "category": "Heroes",
+        "link": "http://marvel.com/characters/6/black_widow"
+      },
+      {
+        "id": 5,
+        "hero": "Daredevil",
+        "name": "Matthew Michael Murdock",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "category": "Heroes",
+        "link": "http://marvel.com/characters/11/daredevil"
+      },
+      {
+        "id": 6,
+        "hero": "Wolverine",
+        "name": "James Howlett",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "category": "Heroes",
+        "link": "http://marvel.com/characters/66/wolverine"
+      },
+      {
+        "id": 7,
+        "hero": "Captain America",
+        "name": "Steven Rogers",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "category": "Heroes",
+        "link": "http://marvel.com/characters/8/captain_america"
+      },
+      {
+        "id": 8,
+        "hero": "Iron Man",
+        "name": "Anthony Edward 'Tony' Stark",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "category": "Heroes",
+        "link": "http://marvel.com/characters/29/iron_man"
+      },
+      {
+        "id": 9,
+        "hero": "THOR",
+        "name": "Thor Odinson",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "category": "Heroes",
+        "link": "http://marvel.com/characters/60/thor"
+      },
+      {
+        "id": 10,
+        "hero": "Dr. Doom",
+        "name": "Victor von Doom",
+        "category": "Villains",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "link": "http://marvel.com/characters/13/dr_doom"
+      },
+      {
+        "id": 11,
+        "hero": "Mystique",
+        "name": "Unrevealed",
+        "category": "Villains",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "link": "http://marvel.com/characters/1552/mystique"
+      },
+      {
+        "id": 12,
+        "hero": "Red Skull",
+        "name": "Johann Shmidt",
+        "category": "Villains",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "link": "http://marvel.com/characters/1901/red_skull"
+      },
+      {
+        "id": 13,
+        "hero": "Ronan",
+        "name": "Ronan",
+        "category": "Villains",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "link": "http://marvel.com/characters/49/ronan"
+      },
+      {
+        "id": 14,
+        "hero": "Magneto",
+        "name": "Max Eisenhardt",
+        "category": "Villains",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "link": "http://marvel.com/characters/35/magneto"
+      },
+      {
+        "id": 15,
+        "hero": "Thanos",
+        "name": "Thanos",
+        "category": "Villains",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "link": "http://marvel.com/characters/58/thanos"
+      },
+      {
+        "id": 16,
+        "hero": "Black Cat",
+        "name": "Felicia Hardy",
+        "category": "Villains",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "link": "http://marvel.com/characters/271/black_cat"
+      }
+    ]
+  }
