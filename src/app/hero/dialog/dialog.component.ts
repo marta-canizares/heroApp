@@ -20,7 +20,7 @@ import { InformationDialogComponent } from './information-dialog.component';
 
         <mat-form-field appearance="outline">
           <mat-label>Name</mat-label>
-          <input formControlName="name" matInput placeholder="Name">
+          <input [ngStyle]="{'text-transform': 'uppercase'}"formControlName="name" matInput placeholder="Name">
         </mat-form-field>
 
         <mat-form-field appearance="fill">
@@ -42,6 +42,7 @@ import { InformationDialogComponent } from './information-dialog.component';
         </mat-form-field>
 
       </div>
+      <mat-error *ngIf="errors()">Please fill in all fields</mat-error>
 
       <div mat-dialog-actions [align]="'center'">
         <button mat-raised-button color="warn" mat-dialog-close >Close</button>
@@ -124,5 +125,14 @@ export class DialogComponent implements OnInit {
         }
       })
     }
+
+    errors():  boolean  {
+      if(this.form.get('name')?.dirty && this.form.get('name')?.touched) 
+        return true
+        else{
+          return false
+        }
+    }
+
 
 }

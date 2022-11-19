@@ -5,6 +5,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { DeleteDialogComponent } from '../dialog/delete-dialog.component';
 import { DialogComponent } from '../dialog/dialog.component';
+import { InformationDialogComponent } from '../dialog/information-dialog.component';
 import { HeroModel } from '../models/hero.models';
 import { HeroService } from '../services/hero.service';
 
@@ -17,41 +18,38 @@ import { HeroService } from '../services/hero.service';
     </button>
     <span>Hero App</span>
     <span class="example-spacer"></span>
+    <button mat-raised-button color="basic" [routerLink]="['/filterId']">Filter by ID</button>
     <button mat-raised-button color="warn"(click)="openDialog()">Add Hero</button>
   </mat-toolbar>
 
   <div class="container">
     <div style="margin-top: 10px;">
           <mat-form-field>
-            <mat-label>Filter</mat-label>
+            <mat-label>Filter Table</mat-label>
             <input matInput (keyup)="applyFilter($event)" placeholder="write the filter" #input>
           </mat-form-field>
 
           <div class="mat-elevation-z8">
             <table mat-table [dataSource]="dataSource" matSort>
 
-  
               <ng-container matColumnDef="id">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
                 <td mat-cell *matCellDef="let row"> {{row.id}} </td>
               </ng-container>
-
 
               <ng-container matColumnDef="hero">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Hero </th>
                 <td mat-cell *matCellDef="let row"> {{row.hero}} </td>
               </ng-container>
 
-
               <ng-container matColumnDef="description">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
                 <td mat-cell *matCellDef="let row"> {{row.description}} </td>
               </ng-container>
 
-
               <ng-container matColumnDef="name">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-                <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+                <td mat-cell *matCellDef="let row"> {{row.name | uppercase}} </td>
               </ng-container>
 
               <ng-container matColumnDef="category">
@@ -101,9 +99,9 @@ export class HeropageComponent implements OnInit{
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private dialog: MatDialog, private service: HeroService) {
-
-  }
+  constructor(
+    private dialog: MatDialog, 
+    private service: HeroService) {}
 
   ngOnInit(): void {
     this.getAllHeroes()
@@ -118,7 +116,14 @@ export class HeropageComponent implements OnInit{
       this.dataSource.sort = this.sort
     }),
       error: (error) => {
-        alert('Se ha producido un error al cargar los heroes')
+        setTimeout(()=> {                     
+          this.dialog.open(InformationDialogComponent, {
+            width: '30%',
+            data: {
+              title: 'Error',
+              paragraph: 'An error has ocurred'
+            }
+          })}, 1000);
       }
     })
   }

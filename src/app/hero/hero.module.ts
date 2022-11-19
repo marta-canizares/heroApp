@@ -12,10 +12,12 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { FilterHeropageComponent } from './components/filterheropage.component';
 import { HeropageComponent } from './components/heropage.component';
 import { DeleteDialogComponent } from './dialog/delete-dialog.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { InformationDialogComponent } from './dialog/information-dialog.component';
+import { HeroRoutingModule } from './hero-routing.module';
 
 
 
@@ -23,7 +25,8 @@ const COMPONENTS = [
   HeropageComponent,
   DialogComponent,
   DeleteDialogComponent,
-  InformationDialogComponent
+  InformationDialogComponent,
+  FilterHeropageComponent
 ];
 
 @NgModule({
@@ -41,8 +44,8 @@ const COMPONENTS = [
     HttpClientModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
-
+    MatSortModule,
+    HeroRoutingModule
   ],
   exports: [HeropageComponent]
 })

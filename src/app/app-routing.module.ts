@@ -3,11 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
 
-  { path: 'home',
+  { path: '',
     loadChildren: () => import('./hero/hero.module').then(m => m.HeroModule)
-  },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', redirectTo: '/home', pathMatch: 'full' }
+  }
 ];
 
 @NgModule({

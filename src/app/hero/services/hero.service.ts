@@ -14,6 +14,10 @@ export class HeroService {
     return this.http.get<HeroModel[]>('http://localhost:3000/marvel')
   }
 
+  getHeroById(id: number): Observable<HeroModel>{
+    return this.http.get<HeroModel>(`http://localhost:3000/marvel/${id}`)
+  }
+
   addNewHero(hero: any): Observable<Partial<HeroModel>>{
     return this.http.post('http://localhost:3000/marvel', hero)
   }
