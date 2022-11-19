@@ -4,7 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { DeleteDialogComponent } from '../dialog/delete-dialog.component';
-import { DialogComponent } from '../dialog/dialog.component';
+import { DialogComponent } from '../dialog/form-dialog.component';
 import { InformationDialogComponent } from '../dialog/information-dialog.component';
 import { HeroModel } from '../models/hero.models';
 import { HeroService } from '../services/hero.service';

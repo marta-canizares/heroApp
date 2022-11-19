@@ -94,7 +94,7 @@ export class FilterHeropageComponent{
     if(id){
     this.service.getHeroById(id)
     .subscribe({
-      next: ((response : any)=>{
+      next: ((response)=>{
       this.infoValue = ''
       this.heroes = [response]
     }),

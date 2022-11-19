@@ -15,7 +15,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { FilterHeropageComponent } from './components/filterheropage.component';
 import { HeropageComponent } from './components/heropage.component';
 import { DeleteDialogComponent } from './dialog/delete-dialog.component';
-import { DialogComponent } from './dialog/dialog.component';
+import { DialogComponent } from './dialog/form-dialog.component';
 import { InformationDialogComponent } from './dialog/information-dialog.component';
 import { HeroRoutingModule } from './hero-routing.module';
 

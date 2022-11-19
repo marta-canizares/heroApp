@@ -1,8 +1,7 @@
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HeroService } from '../services/hero.service';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog'
-import { HeroModel } from '../models/hero.models';
 import { InformationDialogComponent } from './information-dialog.component';
 
 @Component({
@@ -46,7 +45,7 @@ import { InformationDialogComponent } from './information-dialog.component';
 
       <div mat-dialog-actions [align]="'center'">
         <button mat-raised-button color="warn" mat-dialog-close >Close</button>
-        <button mat-raised-button color="primary" [disabled]="form.invalid" type="submit">{{actionButton}}</button>
+        <button mat-raised-button color="primary" [disabled]="form.invalid && disableButton === true" type="submit">{{actionButton}}</button>
       </div>
     </form>
   `,
@@ -63,6 +62,7 @@ export class DialogComponent implements OnInit {
     description: new FormControl('', [Validators.required]),
   });
   public actionButton: string = "Add hero";
+  public disableButton: boolean = false;
 
   ngOnInit(){
     if(this.editData){
@@ -107,8 +107,12 @@ export class DialogComponent implements OnInit {
           this.openInformationDialog('Error', 'An error has ocurred' )
         }
       })
-    } else{
-      this.editHero()
+    } else {
+      if(this.form.value !== this.editData.value){ 
+        this.editHero()
+      } else {
+        this.disableButton = true;
+      }
     }
   }
 
