@@ -13,6 +13,9 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 The aplication is connected to firebase.
 
+
+Now is ready to use!!
+
 Thanks
 
 
