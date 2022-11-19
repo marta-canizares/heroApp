@@ -15,6 +15,8 @@ If you don't have installed Json server, please install with: `npm install -g js
 
 Run `json-server db.json` for a new server.
 
+The information is in db.json but if the object with the heroes doesn't appear, copy the information from /assets/data.json and paste in db.json.
+
 Navigate to `http://localhost:3000/`.
 
 Now is ready to use!
