@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { HeroService } from '../services/hero.service';
+import { HeroFireBaseService } from '../services/hero-fire-base.service';
 import { InformationDialogComponent } from './information-dialog.component';
 
 @Component({
@@ -23,9 +23,9 @@ export class DeleteDialogComponent {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public id: number,
-    private service: HeroService, 
     private dialogRef: MatDialogRef<DeleteDialogComponent>,
-    private dialog: MatDialog){
+    private dialog: MatDialog,
+    private heroeFirebaseService : HeroFireBaseService){
     }
 
     openInformationDialog(title: string, paragraph: string){
@@ -39,17 +39,15 @@ export class DeleteDialogComponent {
         })}, 1000);
     }
 
-    deleteHero(id: number){
-      this.service.deleteHero(id)
-      .subscribe({
-        next: ((response)=>{
-        this.dialogRef.close('delete');
+    async deleteHero(id: number){
+      await this.heroeFirebaseService.deleteHero(id)
+      .then((res)=> {
+        this.dialogRef.close('delete')
         this.openInformationDialog('Hero deleted', 'Your hero has been deleted')
-      }),
-        error: (error) => {
-          this.openInformationDialog('Error', 'An error has ocurred' )
-        }
       })
+      .catch(error => {
+        this.openInformationDialog('Error', 'An error has ocurred' )
+      });
     }
 
 }

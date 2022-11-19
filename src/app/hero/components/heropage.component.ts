@@ -6,7 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { DeleteDialogComponent } from '../dialog/delete-dialog.component';
 import { DialogComponent } from '../dialog/dialog.component';
 import { HeroModel } from '../models/hero.models';
-import { HeroService } from '../services/hero.service';
+import { HeroFireBaseService } from '../services/hero-fire-base.service';
 
 @Component({
   selector: 'app-heropage',
@@ -101,7 +101,10 @@ export class HeropageComponent implements OnInit{
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private dialog: MatDialog, private service: HeroService) {
+  constructor(
+    private dialog: MatDialog, 
+    private heroFireBaseService: HeroFireBaseService
+    ) {
 
   }
 
@@ -110,10 +113,10 @@ export class HeropageComponent implements OnInit{
   }
 
   getAllHeroes(){
-    this.service.getHeroes()
+    this.heroFireBaseService.getHeroes()
     .subscribe({
-      next: ((response)=>{
-      this.dataSource = new MatTableDataSource(response)
+      next: ((heroes)=>{
+      this.dataSource = new MatTableDataSource(heroes)
       this.dataSource.paginator = this.paginator
       this.dataSource.sort = this.sort
     }),

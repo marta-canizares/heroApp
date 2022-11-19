@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { HeroService } from '../services/hero.service';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog'
-import { HeroModel } from '../models/hero.models';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { HeroFireBaseService } from '../services/hero-fire-base.service';
 import { InformationDialogComponent } from './information-dialog.component';
+import { HeroModel } from '../models/hero.models';
 
 @Component({
   selector: 'app-dialog',
@@ -76,9 +76,9 @@ export class DialogComponent implements OnInit {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public editData: any,
-    private service: HeroService, 
     private dialogRef: MatDialogRef<DialogComponent>,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private heroFireBaseService: HeroFireBaseService
     ){}
 
 
@@ -93,36 +93,32 @@ export class DialogComponent implements OnInit {
         })}, 1000);
     }
 
-    submit() {
+    async submit() {
     if(this.form.valid && !this.editData){
-      this.service.addNewHero(this.form.value)
-      .subscribe({
-        next: ((response)=>{
+      await this.heroFireBaseService.addNewHero(this.form.value)
+      .then((res)=> {
         this.form.reset();
         this.dialogRef.close('save');
         this.openInformationDialog('Hero Added', 'Your hero has been added' )
-      }),
-        error: (error) => {
-          this.openInformationDialog('Error', 'An error has ocurred' )
-        }
       })
-    } else{
+      .catch(error => {
+        this.openInformationDialog('Error', 'An error has ocurred' )
+      });
+    }else{
       this.editHero()
     }
   }
 
-    editHero(){
-      this.service.editHero(this.form.value, this.editData.id)
-      .subscribe({
-        next: ((response)=>{
-        this.form.reset();
-        this.dialogRef.close('update');
-        this.openInformationDialog('Hero Edited', 'Your hero has been edited')
-      }),
-        error: (error) => {
-          this.openInformationDialog('Error', 'An error has ocurred' )
-        }
-      })
-    }
+ async editHero(){
+    await this.heroFireBaseService.editHero(this.form.value, this.editData.id)
+    .then((res)=> {
+      this.form.reset();
+      this.dialogRef.close('update');
+      this.openInformationDialog('Hero Edited', 'Your hero has been edited')
+    })
+    .catch(error => {
+      this.openInformationDialog('Error', 'An error has ocurred' )
+    });
+  }
 
 }
