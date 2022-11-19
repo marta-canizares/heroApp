@@ -11,11 +11,9 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Json Server
 
-If you don't have installed Json server, please install with: `npm install json-server`
+If you don't have installed Json server, please install with: `npm install -g json-server`
 
-Run `json-server --watch db.json` for a new server.
-
-Paste in file db.json the information that is in `assets/data.json`.
+Run `json-server db.json` for a new server.
 
 Navigate to `http://localhost:3000/`.
 
