@@ -45,7 +45,7 @@ import { InformationDialogComponent } from './information-dialog.component';
 
       <div mat-dialog-actions [align]="'center'">
         <button mat-raised-button color="warn" mat-dialog-close >Close</button>
-        <button mat-raised-button color="primary" [disabled]="form.invalid && disableButton === true" type="submit">{{actionButton}}</button>
+        <button mat-raised-button color="primary" [disabled]="form.invalid" type="submit">{{actionButton}}</button>
       </div>
     </form>
   `,
@@ -62,7 +62,6 @@ export class DialogComponent implements OnInit {
     description: new FormControl('', [Validators.required]),
   });
   public actionButton: string = "Add hero";
-  public disableButton: boolean = false;
 
   ngOnInit(){
     if(this.editData){
@@ -108,11 +107,7 @@ export class DialogComponent implements OnInit {
         }
       })
     } else {
-      if(this.form.value !== this.editData.value){ 
         this.editHero()
-      } else {
-        this.disableButton = true;
-      }
     }
   }
 
@@ -133,7 +128,7 @@ export class DialogComponent implements OnInit {
     errors():  boolean  {
       if(this.form.get('name')?.dirty && this.form.get('name')?.touched) 
         return true
-        else{
+        else {
           return false
         }
     }
